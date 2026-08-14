@@ -20,10 +20,16 @@ description: >-
   rule-based approval workflows, eSignatures with audit trails, real-time
   collaboration, and analytics, plus integrations with Salesforce, HubSpot,
   Google Sheets, and Zapier alongside a native REST API. Founded in India and
-  backed by Lightspeed Venture Partners, Revv was acquired by LegalZoom; its
-  standalone developer and API-documentation subdomains (apidocs.revv.so,
-  docs.revv.so, help.revv.so) now redirect into the LegalZoom application, so no
-  independently documented Revv API specification is currently published.
+  backed by Lightspeed Venture Partners, Revv was acquired by LegalZoom
+  (announced 2022-10-17). The marketing site still sells the API and publishes a
+  per-document price list ($4.00 / $2.00 / $1.50 by annual volume, OAuth 2.0,
+  webhooks, API logs, free sandbox accounts), but every developer surface behind
+  it is gone: the API reference host build.revv.so returns 404 from a
+  Postman-hosted "Not found" page, all ~200 www.revv.so/docs/* help articles
+  still listed in the sitemap return nginx 502, and the api., apidocs., docs.,
+  help. and app. subdomains all serve the LegalZoom application shell. No Revv
+  OpenAPI, AsyncAPI, GraphQL SDL, Postman collection, MCP server or agent card
+  is published anywhere.
 url: https://raw.githubusercontent.com/api-evangelist/revv/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -35,7 +41,7 @@ x-status: acquired
 x-acquired-by: legalzoom
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-08-14'
 tags:
 - Company
 - Document Automation
@@ -49,16 +55,59 @@ common:
 - type: DomainSecurity
   url: security/revv-domain-security.yml
 - type: Website
-  url: https://revv.so/
+  url: https://www.revv.so/
 - type: GitHubOrganization
   url: https://github.com/revvsales
+- type: Plans
+  url: plans/revv-plans-pricing.yml
+- type: Authentication
+  url: authentication/revv-authentication.yml
+- type: Lifecycle
+  url: lifecycle/revv-lifecycle.yml
+- type: VulnerabilityDisclosure
+  url: security/revv-vulnerability-disclosure.yml
+- type: TrustCenter
+  url: https://www.revv.so/trust/security.html
+- type: Compliance
+  url: https://www.revv.so/trust/security.html
+- type: LLMsTxt
+  url: llms/revv-llms.txt
+- type: Pricing
+  url: https://www.revv.so/pricing.html
+- type: SignUp
+  url: https://www.revv.so/signup/
+- type: TermsOfService
+  url: https://www.revv.so/termsofuse.html
+- type: PrivacyPolicy
+  url: https://www.revv.so/privacy.html
+- type: Blog
+  url: https://www.revv.so/blog/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 x-enrichment:
-  date: '2026-07-20'
+  date: '2026-08-14'
   status: minimal
-  artifacts_added: 1
+  artifacts_added: 9
   pass: local-v1
+x-coverage:
+  state: none
+  reason: defunct
+  detail: >-
+    Revv's API is still advertised and priced on a frozen 2021 Webflow marketing site, but
+    every surface behind it is dead after the LegalZoom acquisition — build.revv.so, the
+    API reference named in Revv's own API-pricing FAQ, returns a Postman "Not found" 404,
+    all ~200 www.revv.so/docs/* articles still in the sitemap return nginx 502, and
+    api./apidocs./docs./help./app.revv.so all serve the LegalZoom single-page-app shell.
+  evidence:
+  - url: https://build.revv.so/
+    status: 404
+  - url: https://www.revv.so/docs/authenticate-your-revv-api
+    status: 502
+  - url: https://apidocs.revv.so/
+    status: 200
+  - url: https://www.revv.so/developers/api-pricing.html
+    status: 200
+  checked: '2026-08-14'
