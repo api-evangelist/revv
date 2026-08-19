@@ -1,0 +1,45 @@
+generated: '2026-08-14'
+method: searched
+source: npm, PyPI, RubyGems, Packagist, crates.io, pkg.go.dev, NuGet, Maven Central, github.com/revvsales
+package_count: 0
+packages: []
+note: >-
+  No first-party Revv client library exists on any public registry. Searched npm (revv,
+  revvsales, revv-sdk, @revvsales/*), PyPI (revv, revvsales), and the other registries;
+  the only "revv" package that exists is npm `revv` 1.0.0 (published 2016-03-24), an asset
+  fingerprinting CLI by an unrelated author (nicholaswyoung / secretfader) — NOT
+  RevvSales, and not recorded here. Revv's GitHub organisation github.com/revvsales has
+  four public repositories, none of them an SDK: `influence` (a Go New Relic/Influx
+  helper, last pushed 2016), `python-docx-1` and `label-studio` (forks of third-party
+  projects), and `Revv-Documents`, which contains only a LICENSE and a README (last
+  pushed 2020-10-14). No `SDKs` pointer is emitted.
+registries_checked:
+- registry: npm
+  queries: [revv, revvsales, revv-sdk, "@revvsales/sdk"]
+  first_party_hits: 0
+- registry: pypi
+  queries: [revv, revvsales]
+  first_party_hits: 0
+- registry: github
+  queries: [github.com/revvsales]
+  first_party_hits: 0
+  note: 4 public repos, no client library
+excluded:
+- name: revv
+  registry: npm
+  version: 1.0.0
+  published: '2016-03-24'
+  official: false
+  reason: >-
+    Name collision. "Version static assets via your command line" by secretfader;
+    repository github.com/nicholaswyoung/revv. Unrelated to RevvSales.
+x-evidence:
+- url: https://registry.npmjs.org/revv
+  status: 200
+  fetched: '2026-08-14'
+- url: https://pypi.org/pypi/revv/json
+  status: 404
+  fetched: '2026-08-14'
+- url: https://api.github.com/orgs/revvsales/repos
+  status: 200
+  fetched: '2026-08-14'

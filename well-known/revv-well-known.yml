@@ -1,0 +1,103 @@
+generated: '2026-08-14'
+method: probed
+source: live GET of /.well-known/* on every Revv host named in apis.yml and in Revv's own docs
+note: >-
+  No .well-known document is served on any Revv host. On the live marketing host
+  (www.revv.so, a frozen Webflow site) every path returns 404. On the product and
+  documentation subdomains (api.revv.so, apidocs.revv.so, docs.revv.so, help.revv.so,
+  app.revv.so) every path returns HTTP 200 with an identical 1,469-byte LegalZoom
+  single-page-app shell (<!doctype html>, og:site_name "LegalZoom") — an SPA catch-all,
+  not a document. Those 200s are recorded as MISSES. No WellKnown or SecurityTxt pointer
+  is emitted from this probe.
+hosts:
+- host: www.revv.so
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: api.revv.so
+  note: LegalZoom SPA catch-all — 200 with HTML shell on every path; treated as a miss
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/html
+    hit: false
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: text/html
+    hit: false
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: text/html
+    hit: false
+  - path: /.well-known/api-catalog
+    status: 200
+    content_type: text/html
+    hit: false
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    content_type: text/html
+    hit: false
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html
+    hit: false
+  - path: /.well-known/agent.json
+    status: 200
+    content_type: text/html
+    hit: false
+- host: apidocs.revv.so
+  note: LegalZoom SPA catch-all — same 1,469-byte shell on every path; treated as a miss
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/html
+    hit: false
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html
+    hit: false
+  - path: /.well-known/agent.json
+    status: 200
+    content_type: text/html
+    hit: false
+- host: docs.revv.so
+  note: LegalZoom SPA catch-all — same shell; treated as a miss
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/html
+    hit: false
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html
+    hit: false
+  - path: /.well-known/agent.json
+    status: 200
+    content_type: text/html
+    hit: false
+- host: build.revv.so
+  note: former Revv API reference, Postman-hosted; host now answers 404 on every path
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+summary:
+  documents_found: 0
+  security_txt: false
+  agent_card: false
+  openid_configuration: false
+  api_catalog: false

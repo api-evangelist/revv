@@ -1,0 +1,85 @@
+generated: '2026-08-14'
+method: searched
+source: https://www.revv.so/developers/api-pricing.html
+docs:
+- https://www.revv.so/developers/api-pricing.html
+- https://www.revv.so/pricing.html
+currency: USD
+billing_model: usage
+billing_unit: document
+note: >-
+  Revv publishes a volume-tiered API price list on its developer API-pricing page:
+  API usage is charged per document generated, in three annual-volume bands. There is no
+  self-serve API plan with a stated monthly price — the page directs buyers to sign up
+  free and says "just let us know your requirements and we will create a plan for you".
+  The main product pricing page (pricing.html) publishes NO tiers at all: it is a
+  feature comparison plus a "TALK TO US" custom-quote motion. A free plan and a 14-day
+  paid trial are advertised, and free sandbox accounts are offered before going live.
+  Prices captured verbatim from the live page on 2026-08-14; the page is part of a
+  Webflow marketing site last published 2021-12-06 and carries a LegalZoom-acquisition
+  banner, so these figures may no longer be transactable.
+plan_count: 3
+plans:
+- name: API — 1,000 to 5,000 documents
+  scope: api
+  price: 4.00
+  currency: USD
+  unit: per document
+  billing_period: annual volume band
+  included_quota: null
+  overage: null
+  limits:
+    documents_min: 1000
+    documents_max: 5000
+- name: API — 5,000 to 25,000 documents
+  scope: api
+  price: 2.00
+  currency: USD
+  unit: per document
+  billing_period: annual volume band
+  included_quota: null
+  overage: null
+  limits:
+    documents_min: 5000
+    documents_max: 25000
+- name: API — 25,000+ documents
+  scope: api
+  price: 1.50
+  currency: USD
+  unit: per document
+  billing_period: annual volume band
+  included_quota: null
+  overage: null
+  limits:
+    documents_min: 25000
+    documents_max: null
+api_plan_features:
+- Templates and Powerforms
+- Webhooks
+- API Logs
+- Performance Reports
+- OAuth 2.0
+- Email Notifications
+- Advanced Workflow
+- Legally Binding eSignatures
+- 2 Factor Authentication
+- Auto eSignatures
+trial:
+  free_plan: true
+  paid_trial_days: 14
+  credit_card_required: false
+  sandbox_accounts: true
+  sandbox_note: >-
+    "Is there a sandbox available for implementation and QA? Yes, sandbox accounts are
+    available for free before going live with Production account." — API pricing FAQ.
+custom_plans:
+  available: true
+  contact: support@revv.so
+  phone: "+1 (424) 260-4888"
+x-evidence:
+- url: https://www.revv.so/developers/api-pricing.html
+  status: 200
+  fetched: '2026-08-14'
+- url: https://www.revv.so/pricing.html
+  status: 200
+  fetched: '2026-08-14'

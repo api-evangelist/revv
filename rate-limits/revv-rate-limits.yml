@@ -1,0 +1,31 @@
+generated: '2026-08-14'
+method: searched
+source: https://www.revv.so/developers/api-pricing.html
+limit_count: 0
+note: >-
+  Revv publishes no rate limits. The API-pricing page meters the API by documents
+  generated per year (a commercial quota, not a request-rate limit) and lists "API Logs"
+  as a plan feature, but names no per-second/per-minute request ceiling, no burst, and no
+  response headers. The pages that would carry runtime limits are gone: the developer API
+  reference at https://build.revv.so (named as the documentation home in Revv's own API
+  pricing FAQ) returns 404 from a Postman-hosted "Not found" page, and every
+  https://www.revv.so/docs/* help article — including /docs/authenticate-your-revv-api,
+  which is still listed in the site sitemap — returns nginx 502 Bad Gateway. An honest
+  zero: nothing about throttling is published anywhere reachable.
+limits: []
+headers: []
+exhaustion_status: null
+quota:
+  metered_on: documents generated
+  window: annual
+  source: https://www.revv.so/developers/api-pricing.html
+x-evidence:
+- url: https://www.revv.so/developers/api-pricing.html
+  status: 200
+  fetched: '2026-08-14'
+- url: https://build.revv.so/
+  status: 404
+  fetched: '2026-08-14'
+- url: https://www.revv.so/docs/authenticate-your-revv-api
+  status: 502
+  fetched: '2026-08-14'

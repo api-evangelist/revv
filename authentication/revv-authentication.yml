@@ -1,0 +1,61 @@
+generated: '2026-08-14'
+method: searched
+source: https://www.revv.so/developers/api-pricing.html
+docs: https://www.revv.so/docs/authenticate-your-revv-api
+docs_status: 502
+note: >-
+  Revv has no published OpenAPI, so this profile is not derived from a spec — it is what
+  Revv itself still states in public about API authentication. The developer API-pricing
+  page (live, 200) lists "OAuth 2.0" as an API plan capability, and the product pricing
+  page lists "Single sign-on (SSO) — OAuth and SAML2.0 support for one login access
+  between your business apps and Revv". The dedicated auth article,
+  /docs/authenticate-your-revv-api, is still listed in Revv's sitemap.xml but the origin
+  now returns nginx 502 Bad Gateway, and the API reference host named in Revv's own API
+  pricing FAQ (https://build.revv.so) returns 404 from a Postman "Not found" page. No
+  scheme names, token endpoints, scopes, or header formats are reachable anywhere, so
+  none are recorded here.
+summary:
+  types:
+  - oauth2
+  api_key_in: []
+  oauth2_flows: []
+  spec_backed: false
+schemes:
+- name: OAuth 2.0
+  type: oauth2
+  flows: []
+  authorization_url: null
+  token_url: null
+  scopes: []
+  evidence: >-
+    "OAuth 2.0" listed among Revv API plan capabilities on
+    https://www.revv.so/developers/api-pricing.html (HTTP 200, fetched 2026-08-14)
+- name: SSO (SAML 2.0)
+  type: saml2
+  scope: application sign-in, not API authorization
+  evidence: >-
+    "Single sign-on (SSO) — OAuth and SAML2.0 support" on
+    https://www.revv.so/pricing.html (HTTP 200, fetched 2026-08-14)
+unverified_claims:
+- claim: >-
+    Revv APIs follow the OAuth 2.0 authentication process and each API request carries an
+    access_token in the authentication header.
+  attributed_to: https://www.revv.so/docs/authenticate-your-revv-api
+  verified: false
+  reason: >-
+    Recovered from a search-engine index of that page; the live URL returns 502 so the
+    wording could not be fetched and confirmed on 2026-08-14. Recorded as an unverified
+    claim, not as a captured contract.
+x-evidence:
+- url: https://www.revv.so/developers/api-pricing.html
+  status: 200
+  fetched: '2026-08-14'
+- url: https://www.revv.so/pricing.html
+  status: 200
+  fetched: '2026-08-14'
+- url: https://www.revv.so/docs/authenticate-your-revv-api
+  status: 502
+  fetched: '2026-08-14'
+- url: https://build.revv.so/
+  status: 404
+  fetched: '2026-08-14'
