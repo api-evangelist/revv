@@ -72,6 +72,8 @@ tags_raw:
 - Workflow-Automation
 apis: []
 common:
+- type: RateLimits
+  url: rate-limits/revv-rate-limits.yml
 - type: DomainSecurity
   url: security/revv-domain-security.yml
 - type: Website
