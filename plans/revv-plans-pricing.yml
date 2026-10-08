@@ -83,3 +83,31 @@ x-evidence:
 - url: https://www.revv.so/pricing.html
   status: 200
   fetched: '2026-08-14'
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - subscription
+  units: []
+  plans:
+  - name: API — 1,000 to 5,000 documents
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods: []
+  - name: API — 5,000 to 25,000 documents
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods: []
+  - name: API — 25,000+ documents
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods: []
